@@ -31,6 +31,6 @@ class HomePageViewTest(TestCase):
 
         self.assertIn('a new item', response.content.decode())
 
-        expected_html = render_to_string('home.html',{'new_item_text':'a new item'})
+        expected_html = render_to_string('home.html', {'new_item_text': 'a new item'})
 
-        self.assertEqual(response.content.decode('utf8'),expected_html)
+        self.assertEqual(response.content.decode('utf8'), expected_html)
