@@ -1,3 +1,6 @@
 superlists/__pycache__/
+lists/__pycache__/
 *.pic
 .idea
+*.pyc
+db.sqlite3
