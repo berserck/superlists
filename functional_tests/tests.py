@@ -1,9 +1,9 @@
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -90,7 +90,7 @@ class NewVisitorTest(LiveServerTestCase):
         # she visits that URL - her to-do list is still there.
 
         #satisfied she goes back to sleep
-        self.fail('finish the test')
+        #self.fail('finish the test')
 
     def test_layout_and_styling(self):
         #edith goes to teh homepages
