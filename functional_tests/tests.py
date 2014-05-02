@@ -36,7 +36,7 @@ class NewVisitorTest(LiveServerTestCase):
         # She types "Buy peacock feathers" into a text box
         inputbox.send_keys('Buy peacock feathers')
 
-        #When she hits enter,she is taken to a new URL,
+        # When she hits enter,she is taken to a new URL,
         # and now the page lists "1: Buy peacock feathers" as an item in a
         # to-do list
         inputbox.send_keys(Keys.ENTER)
@@ -91,3 +91,26 @@ class NewVisitorTest(LiveServerTestCase):
 
         #satisfied she goes back to sleep
         self.fail('finish the test')
+
+    def test_layout_and_styling(self):
+        #edith goes to teh homepages
+        self.browser.get(self.live_server_url)
+        self.browser.set_window_size(1024, 768)
+
+        #she notices the input box is nicely centered
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x'] + inputbox.size['width'] / 2,
+            512,
+            delta=5
+        )
+
+        # She starts a new list and sees the input is nicely
+        # centered there too
+        inputbox.send_keys('testing\n')
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x'] + inputbox.size['width'] / 2,
+            512,
+            delta=5
+        )
